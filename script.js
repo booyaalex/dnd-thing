@@ -470,5 +470,5 @@ function newPage(hi) {
   params.delete("page");
   params.set("page", hi);
   console.log(`${url.origin}${url.pathname}?${params.toString()}`);
-  window.location.href = params;
+  window.location.href = `${url.origin}${url.pathname}?${params.toString()}`;
 }
