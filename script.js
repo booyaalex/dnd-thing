@@ -30,7 +30,7 @@ function getCharacters() {
         statsPage(childSnapshot);
       }
     });
-    if (!charArray.includes(childSnapshot.key)) {
+    if (!charArray.includes(char)) {
       characterSelect(snapshot);
     }
   });
