@@ -557,8 +557,8 @@ function backButton() {
   button.classList.add("center");
   button.classList.add("cursor");
   textnode = document.createTextNode("Back");
-  button.appendChild("textnode");
-  div.appendChild("button");
+  button.appendChild(textnode);
+  div.appendChild(button);
 
   document.body.appendChild(div);
 }
