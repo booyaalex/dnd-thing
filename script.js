@@ -109,7 +109,7 @@ function characterSelect(snapshot) {
         statusDiv.appendChild(div);
       }
     }
-    document.body.appendChild(headerSection);
+    document.body.appendChild(section);
   });
 }
 
