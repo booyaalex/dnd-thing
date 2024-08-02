@@ -128,7 +128,7 @@ function characterMake() {
   section.id = "create";
   section.setAttribute("onclick", "selectChar(this.id)");
 
-  const h2 = document.createElement("section");
+  const h2 = document.createElement("h2");
   h2.classList.add("center");
   textnode = document.createTextNode("Create A Character!");
   h2.appendChild(textnode);
@@ -582,6 +582,10 @@ function backButton() {
   div.appendChild(button);
 
   document.body.appendChild(div);
+}
+
+function characterMaker() {
+  console.log("hi");
 }
 
 getCharacters();
