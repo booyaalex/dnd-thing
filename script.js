@@ -19,15 +19,20 @@ const char = url.searchParams.get("char");
 const page = url.searchParams.get("page");
 console.log(char); // Leondias
 console.log(page); // Character
+const charArray = [];
 
 function getCharacters() {
   let i = 0;
   db.ref("/Characters").on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
+      charArray.push(childSnapshot.key);
       if (childSnapshot.key == char) {
         statsPage(childSnapshot);
       }
     });
+    if (!charArray.includes(childSnapshot.key)) {
+      characterSelect(snapshot);
+    }
   });
 }
 
@@ -41,6 +46,71 @@ function statsPage(child) {
   if (page == "Battle") {
     battleSection(child);
   }
+}
+
+function characterSelect(snapshot) {
+  snapshot.forEach(function (child) {
+    const section = document.createElement("section");
+    section.classList.add("center");
+    section.classList.add("flex");
+    section.classList.add("between");
+
+    const nameDiv = document.createElement("div");
+    nameDiv.classList.add("container");
+    nameDiv.classList.add("flex");
+    nameDiv.classList.add("evenly");
+
+    const div = document.createElement("div");
+    const h2 = document.createElement("h2");
+    textnode = document.createTextNode(child.val().name.toUpperCase());
+    h2.appendChild(textnode);
+    const h3 = document.createElement("h3");
+    textnode = document.createTextNode(child.val().pname);
+    h3.appendChild(textnode);
+    div.appendChild(h2);
+    div.appendChild(h3);
+
+    nameDiv.appendChild(div);
+
+    const statusDiv = document.createElement("div");
+    statusDiv.classList.add("container");
+    statusDiv.classList.add("flex");
+    statusDiv.classList.add("evenly");
+
+    DIV("LV: ", child.val().level, child.val().exp);
+    DIV("HP", child.val().status.hp, child.val().status.maxHp);
+    DIV("MANA", child.val().status.mana, child.val().status.maxMana);
+
+    section.appendChild(nameDiv);
+    section.appendChild(statusDiv);
+
+    function DIV(type, a, b) {
+      if (type == "LV: ") {
+        const div = document.createElement("div");
+        const h2 = document.createElement("h2");
+        textnode = document.createTextNode(`LV: ${a}`);
+        h2.appendChild(textnode);
+        const h3 = document.createElement("h3");
+        textnode = document.createTextNode(`${b}/${100 * a + 100 * (a + 1)}`);
+        h3.appendChild(textnode);
+        div.appendChild(h2);
+        div.appendChild(h3);
+        statusDiv.appendChild(div);
+      } else {
+        const div = document.createElement("div");
+        const h2 = document.createElement("h2");
+        textnode = document.createTextNode(type);
+        h2.appendChild(textnode);
+        const h3 = document.createElement("h3");
+        textnode = document.createTextNode(`${a}/${b}`);
+        h3.appendChild(textnode);
+        div.appendChild(h2);
+        div.appendChild(h3);
+        statusDiv.appendChild(div);
+      }
+    }
+    document.body.appendChild(headerSection);
+  });
 }
 
 function headerSection(child) {
