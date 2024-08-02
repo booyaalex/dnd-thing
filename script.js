@@ -46,6 +46,7 @@ function statsPage(child) {
   if (page == "Battle") {
     battleSection(child);
   }
+  backButton();
 }
 
 function characterSelect(snapshot) {
@@ -545,14 +546,40 @@ function weaponsSection(child) {
   document.body.appendChild(weaponsSection);
 }
 
+function backButton() {
+  const div = document.createElement("div");
+  div.id = backButton;
+  div.classList.add("flex");
+
+  const button = document.createElement("button");
+  button.setAttribute("type", "button");
+  button.setAttribute("onclick", "backPage()");
+  button.classList.add("center");
+  button.classList.add("cursor");
+  textnode = document.createTextNode("Back");
+  button.appendChild("textnode");
+  div.appendChild("button");
+
+  document.body.appendChild(div);
+}
+
 getCharacters();
 
-function newPage(hi) {
+function newPage(id) {
   console.log(url);
   let params = new URLSearchParams(url.search);
   console.log(params.toString());
   params.delete("page");
-  params.set("page", hi);
+  params.set("page", id);
+  console.log(`${url.origin}${url.pathname}?${params.toString()}`);
+  window.location.href = `${url.origin}${url.pathname}?${params.toString()}`;
+}
+
+function backPage() {
+  console.log(url);
+  let params = new URLSearchParams(url.search);
+  params.delete("char");
+  params.delete("page");
   console.log(`${url.origin}${url.pathname}?${params.toString()}`);
   window.location.href = `${url.origin}${url.pathname}?${params.toString()}`;
 }
