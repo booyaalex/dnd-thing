@@ -548,7 +548,7 @@ function weaponsSection(child) {
 
 function backButton() {
   const div = document.createElement("div");
-  div.id = backButton;
+  div.id = "backButton";
   div.classList.add("flex");
 
   const button = document.createElement("button");
