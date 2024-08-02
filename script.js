@@ -30,8 +30,11 @@ function getCharacters() {
         statsPage(childSnapshot);
       }
     });
-    if (!charArray.includes(char)) {
+    if(char == "create") {
+      //characterMaker();
+    } else if (!charArray.includes(char)) {
       characterSelect(snapshot);
+      characterMake();
     }
   });
 }
@@ -39,7 +42,7 @@ function getCharacters() {
 function statsPage(child) {
   document.body.innerHTML = "";
   headerSection(child);
-  navSection(child);
+  navSection();
   if (page == "Character") {
     characterSection(child);
   }
@@ -116,6 +119,24 @@ function characterSelect(snapshot) {
   });
 }
 
+function characterMake() {
+  const section = document.createElement("section");
+  section.classList.add("center");
+  section.classList.add("flex");
+  section.classList.add("between");
+  section.classList.add("cursor");
+  section.id = "create";
+  section.setAttribute("onclick", "selectChar(this.id)");
+
+  const h2 = document.createElement("section");
+  h2.classList.add("center");
+  textnode = document.createTextNode("Create A Character!");
+  h2.appendChild(textnode);
+  section.appendChild(h2);
+
+  document.body.appendChild(section);
+}
+
 function selectChar(id) {
   console.log(url);
   let params = new URLSearchParams(url.search);
@@ -190,7 +211,7 @@ function headerSection(child) {
   }
   document.body.appendChild(headerSection);
 }
-function navSection(child) {
+function navSection() {
   const navSection = document.createElement("section");
   navSection.classList.add("center");
   navSection.classList.add("flex");
