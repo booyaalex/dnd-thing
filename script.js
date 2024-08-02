@@ -54,6 +54,8 @@ function characterSelect(snapshot) {
     section.classList.add("center");
     section.classList.add("flex");
     section.classList.add("between");
+    section.id = child.key;
+    section.setAttribute("onclick", "selectChar(this.id)");
 
     const nameDiv = document.createElement("div");
     nameDiv.classList.add("container");
@@ -79,7 +81,6 @@ function characterSelect(snapshot) {
 
     DIV("LV: ", child.val().level, child.val().exp);
     DIV("HP", child.val().status.hp, child.val().status.maxHp);
-    DIV("MANA", child.val().status.mana, child.val().status.maxMana);
 
     section.appendChild(nameDiv);
     section.appendChild(statusDiv);
@@ -111,6 +112,18 @@ function characterSelect(snapshot) {
     }
     document.body.appendChild(section);
   });
+}
+
+function selectChar(id) {
+  console.log(url);
+  let params = new URLSearchParams(url.search);
+  console.log(params.toString());
+  params.delete("char");
+  params.set("char", id);
+  params.delete("page");
+  params.set("page", "Character");
+  console.log(`${url.origin}${url.pathname}?${params.toString()}`);
+  window.location.href = `${url.origin}${url.pathname}?${params.toString()}`;
 }
 
 function headerSection(child) {
