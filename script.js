@@ -54,6 +54,7 @@ function characterSelect(snapshot) {
     section.classList.add("center");
     section.classList.add("flex");
     section.classList.add("between");
+    section.classList.add("cursor");
     section.id = child.key;
     section.setAttribute("onclick", "selectChar(this.id)");
 

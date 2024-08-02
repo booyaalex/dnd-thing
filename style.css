@@ -11,6 +11,9 @@ section {
   background-color: #465263;
   margin-bottom: 50px;
 }
+section.cursor {
+  cursor: pointer;
+}
 
 .center {
   display: block;
