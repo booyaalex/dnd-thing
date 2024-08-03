@@ -31,7 +31,7 @@ function getCharacters() {
       }
     });
     if(char == "create") {
-      //characterMaker();
+      characterMaker();
     } else if (!charArray.includes(char)) {
       characterSelect(snapshot);
       characterMake();
@@ -126,7 +126,7 @@ function characterMake() {
   section.classList.add("between");
   section.classList.add("cursor");
   section.id = "create";
-  section.setAttribute("onclick", "selectChar(this.id)");
+  section.setAttribute("onclick", "window.location.href = `maker.html`");
 
   const h2 = document.createElement("h2");
   h2.classList.add("center");
@@ -586,6 +586,7 @@ function backButton() {
 
 function characterMaker() {
   console.log("hi");
+  
 }
 
 getCharacters();
