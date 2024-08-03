@@ -90,7 +90,16 @@ const firebaseConfig = {
       }
       if (filled) {
         db.ref("/Characters").child(`${characrerName.value}`).update({
-          test: "test"
+          desc: {
+            appearance: {
+                age: playerAppearance1.value,
+                eyes: playerAppearance2.value,
+                gender: playerAppearance1.value,
+                hair: playerAppearance1.value,
+                height: playerAppearance1.value,
+                weight: playerAppearance1.value
+            }
+          }
         });
       } else {
         alert("Fill in all inputs please");
