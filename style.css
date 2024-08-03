@@ -11,6 +11,15 @@ section {
   background-color: #465263;
   margin-bottom: 50px;
 }
+
+input {
+  width: 90%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: #5f6f87;
+  color: white;
+}
+
 .cursor {
   cursor: pointer;
 }

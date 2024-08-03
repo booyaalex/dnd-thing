@@ -14,8 +14,98 @@
 </head>
 
 <body>
-  <h2>HEHE</h2>
-  <script src="script.js"></script>
+  <section class="center">
+    <h2>NAME</h2>
+    <h3>Your Character's Name</h3>
+    <input class="charInput" id="character_name_input" type="text" placeholder="Your Character's Name"></input>
+    <h3>Your Name</h3>
+    <input class="charInput" id="player_name_input" type="text" placeholder="Your Name"></input>
+  </section>
+  <section class="center">
+    <h2>STATS</h2>
+    <div class="center flex evenly">
+      <div title="Strength">
+        <h3>STR</h3>
+        <p class="charInput statInput" id="stat1"></p>
+      </div>
+      <div title="Dexterity">
+        <h3>DEX</h3>
+        <p class="charInput statInput" id="stat2"></p>
+      </div>
+      <div title="Constitution">
+        <h3>CON</h3>
+        <p class="charInput statInput" id="stat3"></p>
+      </div>
+      <div title="Intellegence">
+        <h3>INT</h3>
+        <p class="charInput statInput" id="stat4"></p>
+      </div>
+      <div title="Wisdon">
+        <h3>WIS</h3>
+        <p class="charInput statInput" id="stat5"></p>
+      </div>
+      <div title="Charisma">
+        <h3>CHA</h3>
+        <p class="charInput statInput" id="stat6"></p>
+      </div>
+    </div>
+    <button type="button" onclick="rollStats()">Roll</button>
+  </section>
+  <section class="center">
+    <h2>CLASS & RACE</h2>
+    <h3>RACE</h3>
+    <input class="charInput" id="race_input" type="text" placeholder="Character's Race"></input>
+    <h3>CLASS</h3>
+    <select class="charInput" id="class_selecter">
+      <option value="">--Please choose an class--</option>
+      <option value="Barbarian">Barbarian</option>
+      <option value="Bard">Bard</option>
+      <option value="Cleric">Cleric</option>
+      <option value="Druid">Druid</option>
+      <option value="Fighter">Fighter</option>
+      <option value="Monk">Monk</option>
+      <option value="Paladin">Paladin</option>
+      <option value="Ranger">Ranger</option>
+      <option value="Rouge">Rouge</option>
+      <option value="Sorcerer">Sorcerer</option>
+      <option value="Warlock">Warlock</option>
+      <option value="Wizard">Wizard</option>
+    </select>
+  </section>
+  <section class="center">
+    <h2>APPEARANCE</h2>
+    <div class="center flex evenly">
+      <div>
+        <h3>Age</h3>
+        <input class="charInput" id="appearance_input_1" type="text" placeholder="Character's Age"></input>
+      </div>
+      <div>
+        <h3>Eye Color</h3>
+        <input class="charInput" id="appearance_input_2" type="text" placeholder="Character's Eye Color"></input>
+      </div>
+      <div>
+        <h3>Gender</h3>
+        <input class="charInput" id="appearance_input_3" type="text" placeholder="Character's Gender"></input>
+      </div>
+      <div>
+        <h3>Hair Color</h3>
+        <input class="charInput" id="appearance_input_4" type="text" placeholder="Character's Hair Color"></input>
+      </div>
+      <div>
+        <h3>Height (cm)</h3>
+        <input class="charInput" id="appearance_input_5" type="text" placeholder="Character's Height"></input>
+      </div>
+      <div>
+        <h3>Weight (lbs)</h3>
+        <input class="charInput" id="appearance_input_6" type="text" placeholder="Character's Weight"></input>
+      </div>
+    </div>
+  </section>
+  <button class="center" type="button" id="submit_button" onclick="submitChar()">Submit Character</button>
+  <div id="backButton" class="flex">
+    <button type="button" onclick="window.location.href = '../'" class="center cursor">Back</button>
+  </div>
+  <script src="maker.js"></script>
 </body>
 
 </html>
