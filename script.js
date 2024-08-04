@@ -33,6 +33,7 @@ function getCharacters() {
     if(char == "create") {
       characterMaker();
     } else if (!charArray.includes(char)) {
+      document.body.innerHTML = "";
       characterSelect(snapshot);
       characterMake();
     }

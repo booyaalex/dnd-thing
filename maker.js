@@ -99,10 +99,10 @@ const firebaseConfig = {
             appearance: {
                 age: playerAppearance1.value,
                 eyes: playerAppearance2.value,
-                gender: playerAppearance1.value,
-                hair: playerAppearance1.value,
-                height: playerAppearance1.value,
-                weight: playerAppearance1.value
+                gender: playerAppearance3.value,
+                hair: playerAppearance4.value,
+                height: playerAppearance5.value,
+                weight: playerAppearance6.value
             },
             background: "None",
             class: characterClass.value,
