@@ -127,12 +127,12 @@ const firebaseConfig = {
           name: characrerName.value,
           pname: playerName.value,
           stats: {
-            CHA: playerStat6,
-            CON: playerStat3,
-            DEX: playerStat2,
-            INT: playerStat4,
-            STR: playerStat1,
-            WIS: playerStat5
+            CHA: playerStat6.innerHTML,
+            CON: playerStat3.innerHTML,
+            DEX: playerStat2.innerHTML,
+            INT: playerStat4.innerHTML,
+            STR: playerStat1.innerHTML,
+            WIS: playerStat5.innerHTML
           },
           status: {
             hp: maxHP,
