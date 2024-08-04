@@ -41,6 +41,7 @@ function getCharacters() {
 
 function statsPage(child) {
   document.body.innerHTML = "";
+  backButton();
   headerSection(child);
   navSection();
   if (page == "Character") {
@@ -49,7 +50,7 @@ function statsPage(child) {
   if (page == "Battle") {
     battleSection(child);
   }
-  backButton();
+  
 }
 
 function characterSelect(snapshot) {
