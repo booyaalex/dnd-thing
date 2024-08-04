@@ -140,7 +140,7 @@ const firebaseConfig = {
             mana: maxMANA,
             maxMana: maxMANA
           },
-          walkSpeed: Number(playerStat2 * 2)
+          walkSpeed: Number(playerStat2.innerHTML) * 2
         });
       } else {
         alert("Fill in all inputs please");
