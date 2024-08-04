@@ -89,6 +89,8 @@ const firebaseConfig = {
         console.log(input.value);
       }
       if (filled) {
+        let maxHP = (Number(playerStat3.value) * 0.75) + (Number(playerStat1) * 0.75);
+        let maxMANA = (Number(playerStat5.value) * 0.75)+ (Number(playerStat1) * 0.75);
         db.ref("/Characters").child(`${characrerName.value}`).update({
           desc: {
             appearance: {
@@ -98,8 +100,44 @@ const firebaseConfig = {
                 hair: playerAppearance1.value,
                 height: playerAppearance1.value,
                 weight: playerAppearance1.value
-            }
-          }
+            },
+            background: "None",
+            class: characterClass.value,
+            race: characterRace
+          },
+          exp: 0,
+          gold: 0,
+          inventory: {
+            weapons: [
+              {
+                attackType: "Slashing",
+                damage: "1d6+3",
+                name: "Dagger",
+                reach: 20,
+                sell: 20,
+                type: "Melee",
+                weight: 3
+              }
+            ]
+          },
+          level: 1,
+          name: characrerName.value,
+          pname: playerName.value,
+          stats: {
+            CHA: playerStat6,
+            CON: playerStat3,
+            DEX: playerStat2,
+            INT: playerStat4,
+            STR: playerStat1,
+            WIS: playerStat5
+          },
+          status: {
+            hp: maxHP,
+            maxHp: maxHP,
+            mana: maxMANA,
+            maxMana: maxMANA
+          },
+          walkSpeed: Number(playerStat2 * 2)
         });
       } else {
         alert("Fill in all inputs please");
