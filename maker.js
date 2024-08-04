@@ -106,7 +106,7 @@ const firebaseConfig = {
             },
             background: "None",
             class: characterClass.value,
-            race: characterRace
+            race: characterRace.value
           },
           exp: 0,
           gold: 0,
