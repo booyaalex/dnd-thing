@@ -66,6 +66,10 @@ const firebaseConfig = {
   }
   
   function submitChar() {
+    let maxHP = (Number(playerStat3.value) * 0.75) + (Number(playerStat1) * 0.75);
+    console.log(maxHP);
+    let maxMANA = (Number(playerStat5.value) * 0.75)+ (Number(playerStat1) * 0.75);
+    console.log(maxMANA);
     if (confirm("Are you sure you want to save this thing into the database?")) {
       let filled = true;
       const inputs = document.getElementsByClassName("charInput");
@@ -89,8 +93,7 @@ const firebaseConfig = {
         console.log(input.value);
       }
       if (filled) {
-        let maxHP = (Number(playerStat3.value) * 0.75) + (Number(playerStat1) * 0.75);
-        let maxMANA = (Number(playerStat5.value) * 0.75)+ (Number(playerStat1) * 0.75);
+        
         db.ref("/Characters").child(`${characrerName.value}`).update({
           desc: {
             appearance: {
