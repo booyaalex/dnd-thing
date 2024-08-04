@@ -66,9 +66,9 @@ const firebaseConfig = {
   }
   
   function submitChar() {
-    let maxHP = Math.trunc(Number(playerStat3.innerHTML) * 0.75) + (Number(playerStat1.innerHTML) * 0.75);
+    let maxHP = Math.trunc((Number(playerStat3.innerHTML) * 0.75) + (Number(playerStat1.innerHTML) * 0.75));
     console.log(maxHP);
-    let maxMANA = Math.trunc(Number(playerStat5.innerHTML) * 0.75)+ (Number(playerStat1.innerHTML) * 0.75);
+    let maxMANA = Math.trunc((Number(playerStat5.innerHTML) * 0.75) + (Number(playerStat1.innerHTML) * 0.75));
     console.log(maxMANA);
     if (confirm("Are you sure you want to save this thing into the database?")) {
       let filled = true;
