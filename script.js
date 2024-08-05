@@ -624,11 +624,12 @@ function checkStuff(snapshot) {
     statArray.push(child.val().stats.INT);
     statArray.push(child.val().stats.STR);
     statArray.push(child.val().stats.WIS);
-    console.log(statArray);
     if (child.val().exp >= expNeeded) {
       console.log(`Player ${child.key} has reached Level ${a + 1}!`);
       let temp = getRandomInt(6);
       statArray[temp] = statArray[temp] + 1;
+      let maxHP = Math.trunc((Number(statArray[1]) * 0.75) + (Number(statArray[4]) * 0.75));
+      let maxMANA = Math.trunc((Number(statArray[5]) * 0.75) + (Number(statArray[4]) * 0.75));
       db.ref(`/Characters/${child.key}`).update({
         exp: Number(child.val().exp - expNeeded),
         level: Number(child.val().level + 1),
@@ -639,6 +640,10 @@ function checkStuff(snapshot) {
           INT: Number(statArray[3]),
           STR: Number(statArray[4]),
           WIS: Number(statArray[5]),
+        },
+        status: {
+          maxHp: maxHP,
+          maxMana: maxMANA
         }
       });
     }
