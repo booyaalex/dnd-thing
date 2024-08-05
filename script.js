@@ -617,10 +617,36 @@ function checkStuff(snapshot) {
   snapshot.forEach(function (child) {
     const a = child.val().level;
     let expNeeded = 100 * a + 100 * (a + 1);
+    const statArray = [];
+    statArray.push(child.val().stats.CHA);
+    statArray.push(child.val().stats.CON);
+    statArray.push(child.val().stats.DEX);
+    statArray.push(child.val().stats.INT);
+    statArray.push(child.val().stats.STR);
+    statArray.push(child.val().stats.WIS);
+    console.log(statArray);
     if (child.val().exp >= expNeeded) {
       console.log(`Player ${child.key} has reached Level ${a + 1}!`);
+      let temp = getRandomInt(6);
+      statArray[temp] = statArray[temp] + 1;
+      db.ref(`/Characters/${child.key}`).update({
+        exp: Number(child.val().exp - expNeeded),
+        level: Number(child.val().level + 1),
+        stats: {
+          CHA: Number(statArray[0]),
+          CON: Number(statArray[1]),
+          DEX: Number(statArray[2]),
+          INT: Number(statArray[3]),
+          STR: Number(statArray[4]),
+          WIS: Number(statArray[5]),
+        }
+      });
     }
   });
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
 //100 * a + 100 * (a + 1)
