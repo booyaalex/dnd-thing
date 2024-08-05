@@ -55,6 +55,7 @@ function statsPage(child) {
 }
 
 function characterSelect(snapshot) {
+  checkStuff(snapshot);
   snapshot.forEach(function (child) {
     const section = document.createElement("section");
     section.classList.add("center");
@@ -611,3 +612,29 @@ function backPage() {
   console.log(`${url.origin}${url.pathname}?${params.toString()}`);
   window.location.href = `${url.origin}${url.pathname}?${params.toString()}`;
 }
+
+function checkStuff(snapshot) {
+  snapshot.forEach(function (child) {
+    const a = child.val().level;
+    let expNeeded = 100 * a + 100 * (a + 1);
+    if (child.val().exp >= expNeeded) {
+      console.log(`Player ${child.key} has reached Level ${a + 1}!`);
+    }
+  });
+}
+
+//100 * a + 100 * (a + 1)
+
+/*
+db.ref("/Characters/Eva").update({
+    abilities: [
+        {
+            test: {
+                desc: "Cuts any Mental Damage in Half",
+                name: "Mental Fortitude",
+                type: "Passive"
+            }
+        }
+    ]
+});
+*/

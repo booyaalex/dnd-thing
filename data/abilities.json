@@ -1,0 +1,12 @@
+{
+    "Mental Fortitude": {
+        "desc": "Cuts any Mental Damage in Half",
+        "name": "Mental Fortitude",
+        "type": "Passive"
+    },
+    "I See You": {
+        "desc": "1.5x Damage when Using Range Weapons",
+        "name": "I See You",
+        "type": "Passive"
+    }
+}

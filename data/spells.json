@@ -1,0 +1,24 @@
+{
+    "Fireball": {
+        "attackType": "Explosion",
+        "castTime": "2 Seconds",
+        "damage": "1d8+5",
+        "desc": "Summons a ball of fire that explodes on contact.",
+        "duration": "1 Minute",
+        "mana": "",
+        "name": "Fireball",
+        "range": "400",
+        "type": "Fire"
+    },
+    "Blessing": {
+        "attackType": "Passive",
+        "castTime": "5 Seconds",
+        "damage": "None",
+        "desc": "",
+        "duration": "1 Minute",
+        "mana": "",
+        "name": "Fireball",
+        "range": "400",
+        "type": "Fire"
+    }
+}
