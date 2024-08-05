@@ -642,9 +642,12 @@ function checkStuff(snapshot) {
           WIS: Number(statArray[5]),
         },
         status: {
+          hp: child.val().status.hp,
           maxHp: maxHP,
+          mana: child.val().status.mana,
           maxMana: maxMANA
-        }
+        },
+        walkSpeed: Math.trunc(Number(statArray[2]) * 2)
       });
     }
   });
